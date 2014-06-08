@@ -1,5 +1,5 @@
 /* Picproje.org
- * Güç kaynağı şablonu STM32F4 Discovery */
+ * Güç kaynağı şablonu STM32F4 Discovery (08.06.2014) */
 
 #include "system.h"
 
