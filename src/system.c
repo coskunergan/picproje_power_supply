@@ -20,64 +20,71 @@ static void SetSysClock(void);
 
 /* System Initialization Functions */
 
-void SystemInit(void) {
-  SCB_CPACR |= ((3UL << 10*2)|(3UL << 11*2));  /* Set CP10 and CP11 to full access */
-  
-  /* Reset the RCC clock configuration to the default reset state ------------*/
-  /* Set HSION bit */
-  RCC_CR |= (uint32_t)0x00000001;
+void SystemInit(void)
+{
+    SCB_CPACR |= ((3UL << 10 * 2) | (3UL << 11 * 2)); /* Set CP10 and CP11 to full access */
 
-  /* Reset CFGR register */
-  RCC_CFGR = 0x00000000;
+    /* Reset the RCC clock configuration to the default reset state ------------*/
+    /* Set HSION bit */
+    RCC_CR |= (uint32_t)0x00000001;
 
-  /* Reset HSEON, CSSON and PLLON bits */
-  RCC_CR &= (uint32_t)0xFEF6FFFF;
+    /* Reset CFGR register */
+    RCC_CFGR = 0x00000000;
 
-  /* Reset PLLCFGR register */
-  RCC_PLLCFGR = 0x24003010;
+    /* Reset HSEON, CSSON and PLLON bits */
+    RCC_CR &= (uint32_t)0xFEF6FFFF;
 
-  /* Reset HSEBYP bit */
-  RCC_CR &= (uint32_t)0xFFFBFFFF;
+    /* Reset PLLCFGR register */
+    RCC_PLLCFGR = 0x24003010;
 
-  /* Disable all interrupts */
-  RCC_CIR = 0x00000000;
+    /* Reset HSEBYP bit */
+    RCC_CR &= (uint32_t)0xFFFBFFFF;
 
-  /* Configure the System clock source, PLL Multiplier and Divider factors, 
-     AHB/APBx prescalers and Flash settings ----------------------------------*/
-  SetSysClock();
+    /* Disable all interrupts */
+    RCC_CIR = 0x00000000;
 
-  /* Configure the Vector Table location add offset address ------------------*/
-  SCB_VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
+    /* Configure the System clock source, PLL Multiplier and Divider factors,
+       AHB/APBx prescalers and Flash settings ----------------------------------*/
+    SetSysClock();
+
+    /* Configure the Vector Table location add offset address ------------------*/
+    SCB_VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 }
 
 /* PLL (clocked by HSE) used as System clock source */
-static void SetSysClock(void) {
+static void SetSysClock(void)
+{
     volatile uint32_t StartUpCounter = 0, HSEStatus = 0;
 
     /* Enable HSE */
     RCC_CR |= ((uint32_t)RCC_CR_HSEON);
 
     /* Wait till HSE is ready and if Time out is reached exit */
-    do {
+    do
+    {
         HSEStatus = RCC_CR & RCC_CR_HSERDY;
         StartUpCounter++;
-    } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
+    }
+    while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
 
-    if ((RCC_CR & RCC_CR_HSERDY) != 0) {
+    if((RCC_CR & RCC_CR_HSERDY) != 0)
+    {
         HSEStatus = (uint32_t)0x01;
     }
-    else {
+    else
+    {
         HSEStatus = (uint32_t)0x00;
     }
 
-    if (HSEStatus == (uint32_t)0x01) {
+    if(HSEStatus == (uint32_t)0x01)
+    {
         /* Enable high performance mode, System frequency up to 168 MHz */
         RCC_APB1ENR |= RCC_APB1ENR_PWREN;
-        PWR_CR |= PWR_CR_VOS;  
+        PWR_CR |= PWR_CR_VOS;
 
         /* HCLK = SYSCLK / 1*/
         RCC_CFGR |= RCC_CFGR_HPRE_DIV1;
-          
+
         /* PCLK2 = HCLK / 2*/
         RCC_CFGR |= RCC_CFGR_PPRE2_DIV2;
 
@@ -86,28 +93,31 @@ static void SetSysClock(void) {
 
         /* Configure the main PLL */
         /* PLL Options - See RM0090 Reference Manual pg. 95 */
-        RCC_PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) -1) << 16) |
-                       (RCC_PLLCFGR_PLLSRC_HSE) | (PLL_Q << 24);
+        RCC_PLLCFGR = PLL_M | (PLL_N << 6) | (((PLL_P >> 1) - 1) << 16) |
+                      (RCC_PLLCFGR_PLLSRC_HSE) | (PLL_Q << 24);
 
         /* Enable the main PLL */
         RCC_CR |= RCC_CR_PLLON;
 
         /* Wait till the main PLL is ready */
-        while((RCC_CR & RCC_CR_PLLRDY) == 0) {
+        while((RCC_CR & RCC_CR_PLLRDY) == 0)
+        {
         }
 
         /* Configure Flash prefetch, Instruction cache, Data cache and wait state */
-        FLASH_ACR = FLASH_ACR_ICEN |FLASH_ACR_DCEN |FLASH_ACR_LATENCY_5WS;
+        FLASH_ACR = FLASH_ACR_ICEN | FLASH_ACR_DCEN | FLASH_ACR_LATENCY_5WS;
 
         /* Select the main PLL as system clock source */
         RCC_CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));
         RCC_CFGR |= RCC_CFGR_SW_PLL;
 
         /* Wait till the main PLL is used as system clock source */
-        while ((RCC_CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL); {
+        while((RCC_CFGR & (uint32_t)RCC_CFGR_SWS) != RCC_CFGR_SWS_PLL);
+        {
         }
     }
-    else { 
+    else
+    {
         /* If HSE fails to start-up, the application will have wrong clock
         configuration. User can add here some code to deal with this error */
     }
@@ -116,46 +126,59 @@ static void SetSysClock(void) {
 
 /* Exception Handlers */
 
-void NMI_Handler(void) {
+void NMI_Handler(void)
+{
     /* Do nothing on NMI exception */
 }
 
-void HardFault_Handler(void) {
-  /* Go to infinite loop when Hard Fault exception occurs */
-  while (1) {
-  }
+void HardFault_Handler(void)
+{
+    /* Go to infinite loop when Hard Fault exception occurs */
+    while(1)
+    {
+    }
 }
 
-void MemManage_Handler(void) {
-  /* Go to infinite loop when Memory Manage exception occurs */
-  while (1) {
-  }
+void MemManage_Handler(void)
+{
+    /* Go to infinite loop when Memory Manage exception occurs */
+    while(1)
+    {
+    }
 }
 
-void BusFault_Handler(void) {
-  /* Go to infinite loop when Bus Fault exception occurs */
-  while (1) {
-  }
+void BusFault_Handler(void)
+{
+    /* Go to infinite loop when Bus Fault exception occurs */
+    while(1)
+    {
+    }
 }
 
-void UsageFault_Handler(void) {
-  /* Go to infinite loop when Usage Fault exception occurs */
-  while (1) {
-  }
+void UsageFault_Handler(void)
+{
+    /* Go to infinite loop when Usage Fault exception occurs */
+    while(1)
+    {
+    }
 }
 
-void SVC_Handler(void) {
+void SVC_Handler(void)
+{
     /* Do nothing on SVCall exception */
 }
 
-void DebugMon_Handler(void) {
+void DebugMon_Handler(void)
+{
     /* Do nothing on Debug Monitor exception */
 }
 
-void PendSV_Handler(void) {
+void PendSV_Handler(void)
+{
     /* Do nothing on PendSVC exception */
 }
 
-void SysTick_Handler(void) {
+void SysTick_Handler(void)
+{
     /* Do nothing on SysTick */
 }
