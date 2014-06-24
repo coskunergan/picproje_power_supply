@@ -142,7 +142,7 @@ uint8_t u8g_dev_t6963_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *a
   switch(msg)
   {
     case U8G_DEV_MSG_INIT:
-      //u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_NONE);    
+      u8g_InitCom(u8g, dev, U8G_SPI_CLK_CYCLE_NONE);    
       u8g_WriteEscSeqP(u8g, dev, u8g_dev_t6963_128x64_init_seq);
       break;
     case U8G_DEV_MSG_STOP:
@@ -174,7 +174,7 @@ uint8_t u8g_dev_t6963_128x64_fn(u8g_t *u8g, u8g_dev_t *dev, uint8_t msg, void *a
           ptr += WIDTH/8;
           disp_ram_adr += WIDTH/8;
         }
-				u8g_SetAddress(u8g, dev, 0);           /* data mode */
+	u8g_SetAddress(u8g, dev, 0);           /* data mode */
         u8g_SetChipSelect(u8g, dev, 0);
       }
       break;
