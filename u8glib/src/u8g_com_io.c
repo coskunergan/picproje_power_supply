@@ -161,7 +161,7 @@ void u8g_SetPinOutput(uint8_t internal_pin_number)
   *u8g_get_avr_io_ptr(u8g_avr_ddr_P, internal_pin_number>>3) |= _BV(internal_pin_number&7);
 }
 
-void u8g_SetPinInput(uint8_t internal_pin_number)
+void u8g_SetPinInput(uint8_t internal_pin_number,uint8_t pull)
 {
   *u8g_get_avr_io_ptr(u8g_avr_ddr_P, internal_pin_number>>3) &= ~_BV(internal_pin_number&7);
 }

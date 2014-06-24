@@ -125,7 +125,7 @@ void delay_micro_seconds(uint32_t us);
 
 uint8_t u8g_Pin(uint8_t port, uint8_t bitpos);
 void u8g_SetPinOutput(uint8_t internal_pin_number);
-void u8g_SetPinInput(uint8_t internal_pin_number);
+void u8g_SetPinInput(uint8_t internal_pin_number,uint8_t pull);
 void u8g_SetPinLevel(uint8_t internal_pin_number, uint8_t level);
 uint16_t u8g_GetPinLevel(uint8_t internal_pin_number);
 uint8_t u8g_com_sw_spi_fn(u8g_t *u8g, uint8_t msg, uint8_t arg_val, void *arg_ptr);

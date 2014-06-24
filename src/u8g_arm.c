@@ -142,7 +142,7 @@ void u8g_SetPinOutput(uint8_t internal_pin_number)
 //////////////////////////////////////////////////////////////////////////////////////////////
 // ARM Cortex-M3 islemciler icin girilen pini INPUT ve PULL-UP yapan fonksiyon
 //////////////////////////////////////////////////////////////////////////////////////////////
-void u8g_SetPinInput(uint8_t internal_pin_number)
+void u8g_SetPinInput(uint8_t internal_pin_number,uint8_t pull)
 {
 		uint8_t temp = (internal_pin_number>>4);	
 		GPIO_InitStructure.GPIO_Pin = 1<<(internal_pin_number&15);
