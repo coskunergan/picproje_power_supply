@@ -1,4 +1,14 @@
 
+/* 	
+		Picproje.org
+		Power Supply Project
+		STM32F4 Discovery Board
+		08.06.2014 
+		V-0.0.2
+*/
+
+// define processor ===== >>>>>  USE_STDPERIPH_DRIVER,  U8G_WITH_PINLIST
+
 #include "stm32f4xx.h"
 #include <stdio.h>
 #include "u8g.h"
