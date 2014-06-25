@@ -437,6 +437,11 @@
               <FileType>1</FileType>
               <FilePath>..\src\stm32_ub_encoder_tim2.c</FilePath>
             </File>
+            <File>
+              <FileName>pin_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\inc\pin_config.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1251,6 +1256,11 @@
               <FileName>stm32_ub_encoder_tim2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\stm32_ub_encoder_tim2.c</FilePath>
+            </File>
+            <File>
+              <FileName>pin_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\inc\pin_config.h</FilePath>
             </File>
           </Files>
         </Group>
