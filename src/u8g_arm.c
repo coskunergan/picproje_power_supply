@@ -22,7 +22,7 @@ GPIO_InitTypeDef GPIO_InitStructure;
 void delay_micro_seconds(uint32_t us)
 {
 #ifdef STM32F4  // 168 Mhz
-    us *= 7;
+    us *= 10;
 #endif
     while(us--)
     {

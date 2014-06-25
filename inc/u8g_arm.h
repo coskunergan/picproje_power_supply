@@ -8,7 +8,8 @@
 #define _U8G_ARM_H
 
 #include "u8g.h"
-
+#include "stm32f4xx_gpio.h"
+#include "stm32f4xx_rcc.h"
 ////////////////// CPU Core Selection ///////////////////
 //#define STM32F1
 //#define STM32L1

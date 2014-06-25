@@ -34,7 +34,7 @@
 	#define U8g_Pin_D5  	PN(0xE, 5)  			  /* D5 		(PE5)*/
 	#define U8g_Pin_D6  	PN(0xE, 6)	 			  /* D6 		(PE6)*/
 	#define U8g_Pin_D7  	PN(0xE, 7)  			  /* D7 		(PE7)*/
-	#define U8g_Pin_En  	PN(0xD, 9)  			  /* Enable (PD9)*/
+	#define U8g_Pin_En  	PN(0xD, 10)  			  /* Enable 	(PD9)*/
 	#define U8g_Pin_Cs1  	PN(0xD, 12)  			  /* CS1 		(PD12)*/
 	#define U8g_Pin_Cs2  	PN(0xD, 11)  			  /* CS2 		(PD11)*/
 	#define U8g_Pin_A0  	PN(0xD, 8)  			  /* A0  		(PD8)*/
