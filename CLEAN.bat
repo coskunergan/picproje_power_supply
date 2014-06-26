@@ -32,6 +32,8 @@ echo clean project/coide_gen/rvmdk/ewarm
 	@if exist "%%a\*.iex" del /q "%%a\*.iex"		
 	@if exist "%%a\*.l1p" del /q "%%a\*.l1p"		
 	@if exist "%%a\*.sct" del /q "%%a\*.sct"	
+    @if exist "%%a\*.o" del /q "%%a\*.o" 
+    @if exist "%%a\*.out" del /q "%%a\*.out"  	
 	@if exist "%%a\Project" rd /s /q "%%a\Project"
 	
 )

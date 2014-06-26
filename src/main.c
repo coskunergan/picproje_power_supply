@@ -4,20 +4,17 @@
 		Power Supply Project
 		STM32F4 Discovery Board
 		08.06.2014 
-		V-0.0.2
+		V-0.0.3
 */
 
 // define processor ===== >>>>>  USE_STDPERIPH_DRIVER,  U8G_WITH_PINLIST
 
 #include "stm32f4xx.h"
-
 #include <stdio.h>
 #include "u8g.h"
 #include "u8g_arm.h"
 #include "stm32_ub_encoder_tim2.h"
 #include "pin_config.h"
-
-
 //-Use Nano C lib- Seçilmeli. eðer seçilmezse sprintf den dolayý ekranda birþey görünmyor..
 
 #define TRUE 1
@@ -45,12 +42,10 @@ char GerilimStr[8];
 char AkimStr[8];
 volatile uint32_t  TimingDelay;
 
-
 void TimingDelay_Decrement(void);
 void DelayMs(uint32_t nTime);
 void DelayS(uint32_t nTime);
 void UserButtonControl(void);
-
 
 /**************************************************************************************************/
 u8g_t u8g;
@@ -155,34 +150,17 @@ void UserButtonControl(void)
     }
 
 }
-
-
-void SysTick_Handler(void){
-	UserButtonControl();
-}
-
+/**************************************************************************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
 int main(void)
 {
-	GPIO_InitTypeDef GPIO_InitStructure;
-		RCC_ClocksTypeDef RCC_Clocks;
+    RCC_ClocksTypeDef RCC_Clocks;
 
-		SystemInit();//168mhz
-		//UB_ENCODER_TIM2_Init(ENC_T2_MODE_2A, ENC_T2_TYP_NORMAL, 99); //SON PARAMETRE ENCODERIN MAX DEGER BELÝRLER..
+    SystemInit();
 
-		UserButtonGpioConfig();
-
-
-		/* Enable the PWR APB1 Clock */
-		RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
-
-		RCC_GetClocksFreq(&RCC_Clocks);
-
-		if (SysTick_Config(168000000/50)) //
-		{
-			for (;;) // Capture error
-			{
-			}
-		}
+    RCC_GetClocksFreq(&RCC_Clocks);
+    SysTick_Config(RCC_Clocks.HCLK_Frequency / 100);   //10mS stabil deger
 
     UserButtonGpioConfig();
 
@@ -220,7 +198,7 @@ int main(void)
     }
     while(u8g_NextPage(&u8g));
 
-    	u8g_Delay(20000);//birraz bekleyelim..
+    DelayS(2);
 
     for(;;)
     {
@@ -338,15 +316,40 @@ int main(void)
         while(u8g_NextPage(&u8g));
         u8g_Delay(100);
     }
+
 }
+/**************************************************************************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
+void DelayS(uint32_t nTime)
+{
+    DelayMs(nTime * 1000);
+}
+/**************************************************************************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
+void DelayMs(uint32_t nTime)
+{
 
+    TimingDelay = nTime / 10;
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    while(TimingDelay != 0);
 
-
-
+}
+/**************************************************************************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
+void TimingDelay_Decrement(void)
+{
+    UserButtonControl();
+    if(TimingDelay != 0x00)
+    {
+        TimingDelay--;
+    }
+}
+/**************************************************************************************************/
+/**************************************************************************************************/
+/**************************************************************************************************/
 #ifdef  USE_FULL_ASSERT
 
 /**

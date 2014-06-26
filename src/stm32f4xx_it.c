@@ -138,8 +138,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-	UserButtonControl();
-    //TimingDelay_Decrement();
+    TimingDelay_Decrement();
 }
 
 /******************************************************************************/
