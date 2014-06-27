@@ -102,13 +102,13 @@
     <File name="cmsis_lib/source/stm32f4xx_usart.c" path="../lib/src/peripherals/stm32f4xx_usart.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_dac.h" path="../lib/inc/peripherals/stm32f4xx_dac.h" type="1"/>
     <File name="u8glib/src/u8g_ll_api.c" path="../u8glib/src/u8g_ll_api.c" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_usart.h" path="../lib/inc/peripherals/stm32f4xx_usart.h" type="1"/>
     <File name="src" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_crc.h" path="../lib/inc/peripherals/stm32f4xx_crc.h" type="1"/>
+    <File name="cmsis_lib/include/stm32f4xx_usart.h" path="../lib/inc/peripherals/stm32f4xx_usart.h" type="1"/>
     <File name="u8glib/src/u8g_pb32h1.c" path="../u8glib/src/u8g_pb32h1.c" type="1"/>
-    <File name="inc/stm32f4_discovery.h" path="../../Picproje - Kopya/lib/inc/stm32f4_discovery.h" type="1"/>
-    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
+    <File name="inc/stm32f4_discovery.h" path="../lib/inc/stm32f4_discovery.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="../lib/inc/core/core_cm4_simd.h" type="1"/>
+    <File name="cmsis_boot/stm32f4xx.h" path="../lib/inc/stm32f4xx.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_spi.c" path="../lib/src/peripherals/stm32f4xx_spi.c" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="../lib/inc/core/core_cmFunc.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_hash.c" path="../lib/src/peripherals/stm32f4xx_hash.c" type="1"/>
@@ -121,6 +121,7 @@
     <File name="syscalls/syscalls.c" path="../src/syscalls.c" type="1"/>
     <File name="u8glib/src/u8g_pb16h2.c" path="../u8glib/src/u8g_pb16h2.c" type="1"/>
     <File name="u8glib/src/u8g_pb8v1.c" path="../u8glib/src/u8g_pb8v1.c" type="1"/>
+    <File name="inc/system_stm32f4xx.h" path="../inc/system_stm32f4xx.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_dac.c" path="../lib/src/peripherals/stm32f4xx_dac.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_wwdg.c" path="../lib/src/peripherals/stm32f4xx_wwdg.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rtc.c" path="../lib/src/peripherals/stm32f4xx_rtc.c" type="1"/>
@@ -128,9 +129,8 @@
     <File name="u8glib/src/u8g_page.c" path="../u8glib/src/u8g_page.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_syscfg.c" path="../lib/src/peripherals/stm32f4xx_syscfg.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_pwr.h" path="../lib/inc/peripherals/stm32f4xx_pwr.h" type="1"/>
-    <File name="encoder_lib/inc/stm32_ub_encoder_tim2.h" path="../inc/stm32_ub_encoder_tim2.h" type="1"/>
     <File name="u8glib/src/u8g_com_null.c" path="../u8glib/src/u8g_com_null.c" type="1"/>
-    <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
+    <File name="encoder_lib/inc/stm32_ub_encoder_tim2.h" path="../inc/stm32_ub_encoder_tim2.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_hash_sha1.c" path="../lib/src/peripherals/stm32f4xx_hash_sha1.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="../lib/src/peripherals/stm32f4xx_rcc.c" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="../lib/inc/core/core_cmInstr.h" type="1"/>
@@ -141,15 +141,14 @@
     <File name="u8glib/src/u8g_pb16v2.c" path="../u8glib/src/u8g_pb16v2.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_adc.h" path="../lib/inc/peripherals/stm32f4xx_adc.h" type="1"/>
     <File name="u8glib/src/u8g_virtual_screen.c" path="../u8glib/src/u8g_virtual_screen.c" type="1"/>
-    <File name="cmsis_boot/system_stm32f4xx.c" path="../src/system_stm32f4xx.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rng.c" path="../lib/src/peripherals/stm32f4xx_rng.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_dcmi.h" path="../lib/inc/peripherals/stm32f4xx_dcmi.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_spi.h" path="../lib/inc/peripherals/stm32f4xx_spi.h" type="1"/>
     <File name="u8glib/src/u8g_dev_ks0108_128x64.c" path="../u8glib/src/u8g_dev_ks0108_128x64.c" type="1"/>
     <File name="u8glib/src/u8g_cursor.c" path="../u8glib/src/u8g_cursor.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
-    <File name="cmsis_lib" path="" type="2"/>
     <File name="u8glib/src/u8g_pb14v1.c" path="../u8glib/src/u8g_pb14v1.c" type="1"/>
+    <File name="cmsis_lib" path="" type="2"/>
     <File name="u8glib/src/u8g_bitmap.c" path="../u8glib/src/u8g_bitmap.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_wwdg.h" path="../lib/inc/peripherals/stm32f4xx_wwdg.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_can.h" path="../lib/inc/peripherals/stm32f4xx_can.h" type="1"/>
@@ -179,7 +178,6 @@
     <File name="u8glib/src/u8g_polygon.c" path="../u8glib/src/u8g_polygon.c" type="1"/>
     <File name="u8glib/src/u8g_pb.c" path="../u8glib/src/u8g_pb.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_flash.c" path="../lib/src/peripherals/stm32f4xx_flash.c" type="1"/>
-    <File name="cmsis_boot/startup" path="" type="2"/>
     <File name="u8glib/src/u8g_com_api_16gr.c" path="../u8glib/src/u8g_com_api_16gr.c" type="1"/>
     <File name="cmsis/core_cm4.h" path="../lib/inc/core/core_cm4.h" type="1"/>
     <File name="u8glib" path="" type="2"/>
@@ -189,16 +187,16 @@
     <File name="encoder_lib/inc" path="" type="2"/>
     <File name="cmsis_lib/source/stm32f4xx_crc.c" path="../lib/src/peripherals/stm32f4xx_crc.c" type="1"/>
     <File name="u8glib/src/u8g_u16toa.c" path="../u8glib/src/u8g_u16toa.c" type="1"/>
+    <File name="cmsis_boot/startup_stm32f4xx.c" path="startup_stm32f4xx.c" type="1"/>
     <File name="cmsis_lib/source/misc.c" path="../lib/src/peripherals/misc.c" type="1"/>
-    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="../lib/src/peripherals/stm32f4xx_adc.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="../lib/inc/peripherals/stm32f4xx_tim.h" type="1"/>
+    <File name="cmsis_lib/source/stm32f4xx_adc.c" path="../lib/src/peripherals/stm32f4xx_adc.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_i2c.c" path="../lib/src/peripherals/stm32f4xx_i2c.c" type="1"/>
     <File name="cmsis_lib/source" path="" type="2"/>
-    <File name="u8glib/src/u8g_rect.c" path="../u8glib/src/u8g_rect.c" type="1"/>
     <File name="src/stm32f4_discovery.c" path="../lib/src/stm32f4_discovery.c" type="1"/>
+    <File name="u8glib/src/u8g_rect.c" path="../u8glib/src/u8g_rect.c" type="1"/>
     <File name="src/stm32f4xx_it.c" path="../src/stm32f4xx_it.c" type="1"/>
-    <File name="cmsis_boot/stm32f4xx_conf.h" path="../../Picproje - Kopya/lib/inc/stm32f4xx_conf.h" type="1"/>
-    <File name="cmsis_boot/system_stm32f4xx.h" path="../inc/system_stm32f4xx.h" type="1"/>
+    <File name="cmsis_boot/stm32f4xx_conf.h" path="../lib/inc/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_dcmi.c" path="../lib/src/peripherals/stm32f4xx_dcmi.c" type="1"/>
     <File name="src/main.c" path="../src/main.c" type="1"/>
     <File name="u8glib/src/u8g_pb16v1.c" path="../u8glib/src/u8g_pb16v1.c" type="1"/>
@@ -226,11 +224,12 @@
     <File name="cmsis_lib/source/stm32f4xx_tim.c" path="../lib/src/peripherals/stm32f4xx_tim.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_gpio.h" path="../lib/inc/peripherals/stm32f4xx_gpio.h" type="1"/>
     <File name="u8glib/src/u8g_pbxh16.c" path="../u8glib/src/u8g_pbxh16.c" type="1"/>
-    <File name="cmsis_lib/include/stm32f4xx_cryp.h" path="../lib/inc/peripherals/stm32f4xx_cryp.h" type="1"/>
     <File name="syscalls" path="" type="2"/>
+    <File name="cmsis_lib/include/stm32f4xx_cryp.h" path="../lib/inc/peripherals/stm32f4xx_cryp.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_fsmc.h" path="../lib/inc/peripherals/stm32f4xx_fsmc.h" type="1"/>
     <File name="u8glib/src/u8g_circle.c" path="../u8glib/src/u8g_circle.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_rng.h" path="../lib/inc/peripherals/stm32f4xx_rng.h" type="1"/>
     <File name="cmsis_lib/include" path="" type="2"/>
+    <File name="src/system_stm32f4xx.c" path="../src/system_stm32f4xx.c" type="1"/>
   </Files>
 </Project>

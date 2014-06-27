@@ -79,7 +79,7 @@ uint16_t UB_ENCODER_TIM2_ReadPos(void)
 void P_ENCODER_InitIO(void)
 {
     GPIO_InitTypeDef GPIO_InitStructure;
-    ENC_TIM2_NAME_t vname;
+    uint8_t vname;
 
     for(vname = 0; vname < 2; vname++)
     {

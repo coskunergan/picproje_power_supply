@@ -1,4 +1,4 @@
-/*
+ /*
 
   u8g_delay.c
 
@@ -75,7 +75,7 @@ void u8g_10MicroDelay(void);
 */
 
 #else
-#  define USE_DUMMY_DELAY
+//#  define USE_DUMMY_DELAY
 #endif
 
 

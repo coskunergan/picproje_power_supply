@@ -13,7 +13,8 @@ echo clean project/coide_gen/rvmdk/ewarm
     @if exist "%%a\ewarm\settings" rd /s /q "%%a\ewarm\settings"
     @if exist "%%a\Release" rd /s /q "%%a\Release"
     //@if exist "%%a\*.dep" del /q "%%a\*.dep"
-    @if exist "%%a\obj" rd /s /q "%%a\obj"
+    @if exist "%%a\obj" rd /s /q "%%a\obj"  
+	@if exist "%%a\List" rd /s /q "%%a\List"  	
     @if exist "%%a\lst" rd /s /q "%%a\lst"
     @if exist "%%a\*.uvgui.*" del /q "%%a\*.uvgui.*"
     @if exist "%%a\*.bak" del /q "%%a\*.bak" 
@@ -33,7 +34,8 @@ echo clean project/coide_gen/rvmdk/ewarm
 	@if exist "%%a\*.l1p" del /q "%%a\*.l1p"		
 	@if exist "%%a\*.sct" del /q "%%a\*.sct"	
     @if exist "%%a\*.o" del /q "%%a\*.o" 
-    @if exist "%%a\*.out" del /q "%%a\*.out"  	
+    @if exist "%%a\*.out" del /q "%%a\*.out"  
+    @if exist "%%a\*.bin" del /q "%%a\*.bin" 	
 	@if exist "%%a\Project" rd /s /q "%%a\Project"
 	
 )

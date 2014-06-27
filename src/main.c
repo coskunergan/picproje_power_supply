@@ -74,7 +74,7 @@ void UserButtonControl(void)
         if(Button1Now == TRUE)
         {
             if(intValue == 0)
-            {
+            {                                                              
                 intValue = 5; //maximum adým boyutudur
             }
             intValue--;
